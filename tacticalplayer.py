@@ -1,6 +1,5 @@
 import random
 
-
 class Tacticalplayer():
 
     def __init__(self):
@@ -10,23 +9,7 @@ class Tacticalplayer():
         self.people_count = 0
         self.computer_count = 0
         self.even_count = 0
-
-    def compare(self, people, computer):
-        # people_input = '''Choose your choice: 0.Paper 1.Scissors 2.Rock'''
-        # # limit the input is integer
-        # index = int(input(people_input))
-        # # limit the input value between 0 to 2
-        # people = self.all_choices[index]
-        # print('You：%s,Computer：%s' % (people, computer))
-        if people == computer:
-            print('\033[32;1mEven\033[0m')
-            self.even_count += 1
-        elif [people, computer] in self.win_list:
-            print('\033[31;1mYou win this round!\033[0m')
-            self.people_count += 1
-        elif [computer, people] in self.win_list:
-            print('\033[31;1mComputer wins this round!\033[0m')
-            self.computer_count += 1
+        self.computer_previous_choice = -1
 
     def game(self):
 
@@ -34,7 +17,16 @@ class Tacticalplayer():
         while self.count < 3:
             try:
                 people_input = '''Choose your choice: 0.Paper 1.Scissors 2.Rock'''
-                computer_tmp = random.choice(self.all_choices)
+                if self.computer_previous_choice == -1:
+                    computer_tmp = random.choice(self.all_choices)
+                    self.computer_previous_choice = self.all_choices.index(computer_tmp)
+                else:
+                    index_tmp = self.computer_previous_choice + 1
+                    if index_tmp > 2:
+                        index_tmp = 0
+                    computer_tmp = self.all_choices[index_tmp]
+                    self.computer_previous_choice = index_tmp
+
                 if computer_tmp:
                     computer = computer_tmp
 
@@ -65,8 +57,8 @@ class Tacticalplayer():
                         self.computer_count += 1
 
                     self.count += 1
-                else:
-                    print('Choose from 0-2, please')
+                # else:
+                #     print('Choose from 0-2, please')
             except ValueError:
                 print('Please choose from 0,1,2')
 
