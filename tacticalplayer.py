@@ -1,5 +1,6 @@
 import random
 
+
 class Tacticalplayer():
 
     def __init__(self):
@@ -37,8 +38,6 @@ class Tacticalplayer():
 
                         computer_tmp = self.all_choices[com_index + 1]
                         computer = computer_tmp
-                    # else:
-                    #     com_index =
 
                 # limit the input is integer
                 index = int(input(people_input))
