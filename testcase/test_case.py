@@ -54,7 +54,23 @@ class TestCase(unittest.TestCase):
         msg17 = Mulitplayer.win(self, 0, 2, 1)
         self.assertEqual(msg17, self.player_2_message)
 
-    # def test_tacticalplay(self):
+    def test_tacticalplay(self):
+        msg18 = Tacticalplayer.win(self, 0, 0, 3)
+        self.assertEqual(msg18, self.even_message)
+        msg19 = Tacticalplayer.win(self, 1, 1, 1)
+        self.assertEqual(msg19, self.even_message)
+        msg20 = Tacticalplayer.win(self, 2, 1, 0)
+        self.assertEqual(msg20, self.people_message)
+        msg21 = Tacticalplayer.win(self, 3, 0, 0)
+        self.assertEqual(msg21, self.people_message)
+        msg22 = Tacticalplayer.win(self, 2, 0, 1)
+        self.assertEqual(msg22, self.people_message)
+        msg23 = Tacticalplayer.win(self, 1, 2, 0)
+        self.assertEqual(msg23, self.computer_message)
+        msg24 = Tacticalplayer.win(self, 0, 3, 0)
+        self.assertEqual(msg24, self.computer_message)
+        msg25 = Tacticalplayer.win(self, 0, 2, 1)
+        self.assertEqual(msg25, self.computer_message)
 
     def tearDown(self):
         print("TearDown method execute")

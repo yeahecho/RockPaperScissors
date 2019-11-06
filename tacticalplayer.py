@@ -64,14 +64,19 @@ class Tacticalplayer():
         return self.people_count, self.computer_count, self.even_count
 
     def win(self, peoplecount, computercount, evencount):
+        msg = None
         if peoplecount == 2 or peoplecount == 3 or (peoplecount == 2 and evencount == 1) or (
                 peoplecount == 1 and evencount == 2):
             print('\033[31;1mGame over! You win the game!\033[0m')
+            msg = 'Game over! You win the game!'
         elif computercount == 2 or computercount == 3 or (computercount == 2 and evencount == 1) or (
                 computercount == 1 and evencount == 2):
-            print('\033[31;1mComputer wins the game!\033[0m')
+            print('\033[31;1mGame over! Computer wins the game!\033[0m')
+            msg = 'Game over! Computer wins the game!'
         elif evencount == 3 or peoplecount == computercount == evencount == 1:
             print('\033[32;1mGame over! Even\033[0m')
+            msg = 'Game over! Even'
+        return msg
 
 
 if __name__ == '__main__':
