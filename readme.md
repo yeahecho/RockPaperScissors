@@ -25,3 +25,10 @@ Each game consists of both players selecting one of Rock, Paper or Scissors; the
 `
 https://github.com/yeahecho/RockPaperScissors.git
 `
+
+## Todo
+-  New player types
+
+-  Long matches
+
+-  New "moves"
