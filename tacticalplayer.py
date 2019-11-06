@@ -28,7 +28,6 @@ class Tacticalplayer():
             print('\033[31;1mComputer wins this round!\033[0m')
             self.computer_count += 1
 
-
     def game(self):
 
         # best of 3
@@ -44,9 +43,7 @@ class Tacticalplayer():
                     if range(len(self.all_choices)):
                         com_index = self.all_choices.index(computer_tmp)
 
-
-
-                        computer_tmp = self.all_choices[com_index+1]
+                        computer_tmp = self.all_choices[com_index + 1]
                         computer = computer_tmp
                     # else:
                     #     com_index =

@@ -47,14 +47,19 @@ class Mulitplayer():
         return self.player_1_count, self.player_2_count, self.even_count
 
     def win(self, playcount1, playcount2, evencount):
+        msg = None
         if playcount1 == 2 or playcount1 == 3 or (playcount1 == 2 and evencount == 1) or (
                 playcount1 == 1 and evencount == 2):
             print('\033[31;1mGame over! Player1 win the game!\033[0m')
+            msg = 'Game over! Player1 win the game!'
         elif playcount2 == 2 or playcount2 == 3 or (playcount2 == 2 and evencount == 1) or (
                 playcount2 == 1 and evencount == 2):
-            print('\033[31;1mPlayer2 wins this round!\033[0m')
+            print('\033[31;1mGame over! Player2 win the game!\033[0m')
+            msg = 'Game over! Player2 win the game!'
         elif evencount == 3 or playcount1 == playcount2 == evencount == 1:
             print('\033[32;1mGame over! Even\033[0m')
+            msg = 'Game over! Even'
+        return msg
 
 
 if __name__ == '__main__':
